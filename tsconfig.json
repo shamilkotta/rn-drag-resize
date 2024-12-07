@@ -1,21 +1,29 @@
 {
   "compilerOptions": {
-    "lib": ["es6"],
-    "declaration": true,
-    "declarationDir": "./dist",
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": false,
+    "rootDir": ".",
+    "paths": {
+      "rn-drag-resize": ["./src/index"]
+    },
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "outDir": "./dist",
-    "target": "esnext",
-    "jsx": "react-native",
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@types"]
-  },
-  "include": ["./src/Drag.tsx", "resize.png"],
-  "exclude": ["./node_modules", "./Example"]
+    "strict": true,
+    "target": "ESNext",
+    "verbatimModuleSyntax": true
+  }
 }

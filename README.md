@@ -1,26 +1,33 @@
-# reanimated-drag-resize
+# rn-drag-resize
 
-Draggable and Resizable React Native Component running at 60FPS using React Native Reanimated v2
+"Draggable and Resizable component using React Native Reanimated"
 
-[![npm version](https://img.shields.io/npm/v/reanimated-drag-resize.svg?style=for-the-badge)](https://www.npmjs.com/package/reanimated-drag-resize)
-[![npm downloads](https://img.shields.io/npm/dm/reanimated-drag-resize.svg?style=for-the-badge)](https://www.npmjs.com/package/reanimated-drag-resize)
-[![npm](https://img.shields.io/npm/dt/reanimated-drag-resize.svg?style=for-the-badge)](https://www.npmjs.com/package/reanimated-drag-resize)
-[![npm](https://img.shields.io/npm/l/reanimated-drag-resize?style=for-the-badge)](https://github.com/fateh999/reanimated-drag-resize/blob/master/LICENSE)
+## Installation
 
-![Demo](https://i.ibb.co/c30NjMn/reanimated-drag-resize-demo.gif)
+```sh
+npm install rn-drag-resize
+```
 
-# Main Dependencies
-
-- react-native-reanimated v2
-- react-native-gesture-handler
-
-# Import
-
-    import Drag from 'reanimated-drag-resize';
-
-# Documentation :
-
-- [https://fateh999.github.io/reanimated-drag-resize](https://fateh999.github.io/reanimated-drag-resize)
+## Usage
 
 
-<p><a href="https://www.buymeacoffee.com/fateh999"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="fateh999" /></a></p><br><br><br>
+```js
+import { multiply } from 'rn-drag-resize';
+
+// ...
+
+const result = await multiply(3, 7);
+```
+
+
+## Contributing
+
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+## License
+
+MIT
+
+---
+
+Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
