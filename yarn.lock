@@ -3144,7 +3144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@release-it/conventional-changelog@npm:^9.0.2":
+"@release-it/conventional-changelog@npm:9.0.3":
   version: 9.0.3
   resolution: "@release-it/conventional-changelog@npm:9.0.3"
   dependencies:
@@ -3168,6 +3168,38 @@ __metadata:
   checksum: 8c4aacc903fb717619b69ca7eecf8d4a7b928661b0e835c9cd98f1b858a85ce62c348369ad9a52cb2df8df02578c0525a73fce4c69a42ac414d9554cc6be7117
   languageName: node
   linkType: hard
+
+"@shamilkotta/rn-drag-resize@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@shamilkotta/rn-drag-resize@workspace:."
+  dependencies:
+    "@commitlint/config-conventional": ^17.0.2
+    "@evilmartians/lefthook": ^1.5.0
+    "@react-native/eslint-config": ^0.73.1
+    "@release-it/conventional-changelog": 9.0.3
+    "@types/jest": ^29.5.5
+    "@types/react": ^18.2.44
+    commitlint: ^17.0.2
+    del-cli: ^5.1.0
+    eslint: ^8.51.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-prettier: ^5.0.1
+    jest: ^29.7.0
+    prettier: ^3.0.3
+    react: 18.3.1
+    react-native: 0.76.3
+    react-native-builder-bob: ^0.35.2
+    react-native-gesture-handler: ^2.21.2
+    react-native-reanimated: ^3.16.3
+    release-it: ^17.10.0
+    typescript: ^5.2.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: "*"
+    react-native-reanimated: "*"
+  languageName: unknown
+  linkType: soft
 
 "@sinclair/typebox@npm:^0.27.8":
   version: 0.27.8
@@ -12424,38 +12456,6 @@ __metadata:
     react-native-gesture-handler: ^2.21.2
     react-native-reanimated: ^3.16.3
     react-native-web: ~0.19.13
-  languageName: unknown
-  linkType: soft
-
-"rn-drag-resize@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "rn-drag-resize@workspace:."
-  dependencies:
-    "@commitlint/config-conventional": ^17.0.2
-    "@evilmartians/lefthook": ^1.5.0
-    "@react-native/eslint-config": ^0.73.1
-    "@release-it/conventional-changelog": ^9.0.2
-    "@types/jest": ^29.5.5
-    "@types/react": ^18.2.44
-    commitlint: ^17.0.2
-    del-cli: ^5.1.0
-    eslint: ^8.51.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-prettier: ^5.0.1
-    jest: ^29.7.0
-    prettier: ^3.0.3
-    react: 18.3.1
-    react-native: 0.76.3
-    react-native-builder-bob: ^0.35.2
-    react-native-gesture-handler: ^2.21.2
-    react-native-reanimated: ^3.16.3
-    release-it: ^17.10.0
-    typescript: ^5.2.2
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-    react-native-gesture-handler: "*"
-    react-native-reanimated: "*"
   languageName: unknown
   linkType: soft
 
