@@ -3144,6 +3144,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shamilkotta/rn-drag-resize-example@workspace:example":
+  version: 0.0.0-use.local
+  resolution: "@shamilkotta/rn-drag-resize-example@workspace:example"
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@babel/runtime": ^7.26.0
+    "@expo/metro-runtime": ~4.0.0
+    expo: ~52.0.17
+    expo-status-bar: ~2.0.0
+    react: 18.3.1
+    react-dom: 18.3.1
+    react-native: 0.76.3
+    react-native-builder-bob: ^0.35.2
+    react-native-gesture-handler: ^2.21.2
+    react-native-reanimated: ^3.16.3
+    react-native-web: ~0.19.13
+  languageName: unknown
+  linkType: soft
+
 "@shamilkotta/rn-drag-resize@workspace:.":
   version: 0.0.0-use.local
   resolution: "@shamilkotta/rn-drag-resize@workspace:."
@@ -12276,25 +12295,6 @@ __metadata:
   checksum: 3ea587b981a19016297edb96d1ffe48af7e6af69660e3b371dbfc73722a73a0b0e9be5c88089fbeeb866c389c1098e07f64929c7414290504b855f54f901ab10
   languageName: node
   linkType: hard
-
-"rn-drag-resize-example@workspace:example":
-  version: 0.0.0-use.local
-  resolution: "rn-drag-resize-example@workspace:example"
-  dependencies:
-    "@babel/core": ^7.20.0
-    "@babel/runtime": ^7.26.0
-    "@expo/metro-runtime": ~4.0.0
-    expo: ~52.0.17
-    expo-status-bar: ~2.0.0
-    react: 18.3.1
-    react-dom: 18.3.1
-    react-native: 0.76.3
-    react-native-builder-bob: ^0.35.2
-    react-native-gesture-handler: ^2.21.2
-    react-native-reanimated: ^3.16.3
-    react-native-web: ~0.19.13
-  languageName: unknown
-  linkType: soft
 
 "run-applescript@npm:^7.0.0":
   version: 7.0.0

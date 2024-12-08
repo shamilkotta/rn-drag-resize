@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "rn-drag-resize": ["./src/index"]
+      "@shamilkotta/rn-drag-resize": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

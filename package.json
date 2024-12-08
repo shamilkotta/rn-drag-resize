@@ -1,6 +1,6 @@
 {
   "name": "@shamilkotta/rn-drag-resize",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Draggable and Resizable component using React Native Reanimated",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -37,7 +37,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace rn-drag-resize-example",
+    "example": "yarn workspace @shamilkotta/rn-drag-resize-example",
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
