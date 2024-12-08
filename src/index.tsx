@@ -1,4 +1,5 @@
 import { type PropsWithChildren } from 'react';
+import { type StyleProp, type ViewStyle } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   runOnJS,
@@ -28,8 +29,8 @@ type Props = {
   isDraggable?: boolean;
   onDragStart?: () => void;
   onDragEnd?: (state: BoxDimension) => void;
-  onTap?: () => void;
   scale?: number;
+  style?: StyleProp<ViewStyle>;
 };
 
 function DragResizable(props: PropsWithChildren<Props>) {
@@ -44,8 +45,8 @@ function DragResizable(props: PropsWithChildren<Props>) {
     onDragStart,
     onDragEnd,
     scale = 1,
-    onTap,
     children,
+    style,
   } = props;
 
   const boxX = useSharedValue(left);
@@ -62,7 +63,7 @@ function DragResizable(props: PropsWithChildren<Props>) {
     .onStart(() => {
       offsetX.value = boxX.value;
       offsetY.value = boxY.value;
-      if (onDragStart) runOnJS(onDragStart);
+      if (onDragStart) runOnJS(onDragStart)();
     })
     .onUpdate((ev) => {
       boxX.value = clamp(
@@ -91,13 +92,6 @@ function DragResizable(props: PropsWithChildren<Props>) {
     .minPointers(1)
     .maxPointers(1);
 
-  const tapGesture = Gesture.Tap()
-    .numberOfTaps(1)
-    .onStart(() => {
-      if (onTap) runOnJS(onTap);
-    })
-    .onEnd(() => {});
-
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [
       {
@@ -113,10 +107,8 @@ function DragResizable(props: PropsWithChildren<Props>) {
   }));
 
   return (
-    <Animated.View style={[animatedStyle]}>
-      <GestureDetector
-        gesture={Gesture.Simultaneous(gestureHandler, tapGesture)}
-      >
+    <Animated.View style={[animatedStyle, style]}>
+      <GestureDetector gesture={Gesture.Simultaneous(gestureHandler)}>
         {children}
       </GestureDetector>
     </Animated.View>
