@@ -47,8 +47,8 @@
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "draggable",
+    "resizable"
   ],
   "repository": {
     "type": "git",
