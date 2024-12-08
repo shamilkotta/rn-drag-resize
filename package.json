@@ -37,7 +37,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "pnpm -F rn-drag-resize-example",
+    "example": "yarn workspace rn-drag-resize-example",
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -77,11 +77,11 @@
     "eslint-plugin-prettier": "^5.0.1",
     "jest": "^29.7.0",
     "prettier": "^3.0.3",
-    "react": "17.0.2",
+    "react": "18.3.1",
     "react-native": "0.76.3",
-    "react-native-builder-bob": "^0.33.3",
-    "react-native-gesture-handler": "*",
-    "react-native-reanimated": "*",
+    "react-native-builder-bob": "^0.35.2",
+    "react-native-gesture-handler": "^2.21.2",
+    "react-native-reanimated": "^3.16.3",
     "release-it": "^17.10.0",
     "typescript": "^5.2.2"
   },
@@ -97,7 +97,7 @@
   "workspaces": [
     "example"
   ],
-  "packageManager": "pnpm@9.12.3",
+  "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
@@ -162,6 +162,7 @@
     "source": "src",
     "output": "lib",
     "targets": [
+      "codegen",
       [
         "commonjs",
         {
@@ -182,5 +183,22 @@
         }
       ]
     ]
+  },
+  "codegenConfig": {
+    "name": "RNRnDragResizeSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "outputDir": {
+      "ios": "ios/generated",
+      "android": "android/generated"
+    },
+    "android": {
+      "javaPackageName": "com.rndragresize"
+    }
+  },
+  "create-react-native-library": {
+    "languages": "js",
+    "type": "library",
+    "version": "0.45.3"
   }
 }
