@@ -1,37 +1,46 @@
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { useState } from 'react';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import DragResizable from 'rn-drag-resize';
+import DragResizable from '@shamilkotta/rn-drag-resize';
 
 export default function App() {
-  const { width, height } = Dimensions.get('screen');
+  const [bounds, setBounds] = useState({ width: 0, height: 0 });
 
   return (
     <GestureHandlerRootView>
-      <View style={styles.container}>
-        <DragResizable
-          heightBound={height}
-          widthBound={width}
-          left={10}
-          top={10}
-          onDragEnd={(val) => {
-            console.log({ dragEnd: val });
+      <SafeAreaView style={styles.container}>
+        <View
+          onLayout={(ev) => {
+            const layout = ev.nativeEvent.layout;
+            setBounds({ width: layout.width, height: layout.height });
           }}
-          onDragStart={() => {
-            console.log('drag started');
-          }}
-          onTap={() => {
-            console.log('Tapped on box');
-          }}
-          onResizeEnd={(value) => {
-            console.log({ resizeEnd: value });
-          }}
-          onResizeStart={() => {
-            console.log('resize start');
-          }}
+          style={styles.container}
         >
-          <View style={styles.box} />
-        </DragResizable>
-      </View>
+          <DragResizable
+            heightBound={bounds.height}
+            widthBound={bounds.width}
+            left={10}
+            top={10}
+            onDragEnd={(value) => {
+              console.log({ dragEnd: value });
+            }}
+            onDragStart={() => {
+              console.log('drag started');
+            }}
+            onTap={() => {
+              console.log('Tapped on box');
+            }}
+            onResizeEnd={(value) => {
+              console.log({ resizeEnd: value });
+            }}
+            onResizeStart={() => {
+              console.log('resize start');
+            }}
+          >
+            <View style={styles.box} />
+          </DragResizable>
+        </View>
+      </SafeAreaView>
     </GestureHandlerRootView>
   );
 }
