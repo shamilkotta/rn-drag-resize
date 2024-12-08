@@ -102,16 +102,16 @@ function DragResizable(props: PropsWithChildren<Props>) {
       }
     })
     .onFinalize(() => {})
-    .minDistance(0)
+    .minDistance(10)
     .minPointers(1)
     .maxPointers(1);
 
   const tapGesture = Gesture.Tap()
     .numberOfTaps(1)
-    .onStart(() => {
-      if (onTap) runOnJS(onTap);
-    })
-    .onEnd(() => {});
+    .onStart(() => {})
+    .onEnd(() => {
+      if (onTap) runOnJS(onTap)();
+    });
 
   const createResizeHandler = useCallback(
     (corner: string) => {
