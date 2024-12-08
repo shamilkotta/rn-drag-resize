@@ -4,15 +4,24 @@ description: Setup Node.js and install dependencies
 runs:
   using: composite
   steps:
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
-
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
-        node-version: 20
-        cache: 'pnpm'
+        node-version-file: .nvmrc
+
+    - name: Cache dependencies
+      id: yarn-cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          **/node_modules
+          .yarn/install-state.gz
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/package.json', '!node_modules/**') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          ${{ runner.os }}-yarn-
 
     - name: Install dependencies
-      run: pnpm install
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       shell: bash

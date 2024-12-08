@@ -1,6 +1,6 @@
 # rn-drag-resize
 
-"Draggable and Resizable component using React Native Reanimated"
+Draggable and Resizable component using React Native Reanimated
 
 ## Installation
 
