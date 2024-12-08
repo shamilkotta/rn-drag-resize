@@ -4,8 +4,8 @@ Draggable and Resizable component using React Native Reanimated
 
 This library is a fork of [reanimated-drag-resize](https://github.com/fateh999/reanimated-drag-resize).
 
-[x] Event start and end callbacks
-[x] 4 corner resizing
+- [x] Event start and end callbacks
+- [x] 4 corner resizing
 
 ## Getting started
 
