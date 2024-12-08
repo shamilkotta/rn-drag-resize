@@ -1,6 +1,7 @@
 {
   "name": "@shamilkotta/rn-drag-resize",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "private": "false",
   "description": "Draggable and Resizable component using React Native Reanimated",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
