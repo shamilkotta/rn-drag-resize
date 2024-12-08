@@ -1,30 +1,44 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'rn-drag-resize';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import DragResizable from 'rn-drag-resize';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
-
-  useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const { width, height } = Dimensions.get('screen');
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <GestureHandlerRootView>
+      <View style={styles.container}>
+        <DragResizable
+          heightBound={height}
+          widthBound={width}
+          left={10}
+          top={10}
+          onDragEnd={(val) => {
+            console.log({ dragEnd: val });
+          }}
+          onDragStart={() => {
+            console.log('drag started');
+          }}
+          onTap={() => {
+            console.log('Tapped on box');
+          }}
+          onResizeEnd={(value) => {
+            console.log({ resizeEnd: value });
+          }}
+          onResizeStart={() => {
+            console.log('resize start');
+          }}
+        >
+          <View style={styles.box} />
+        </DragResizable>
+      </View>
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
+  box: { backgroundColor: 'red', width: '100%', height: '100%' },
 });
