@@ -17,6 +17,13 @@ export default function App() {
           style={styles.container}
         >
           <DragResizable
+            renderHandler={({ handler }) => {
+              return (
+                <View style={[styles.cornerHandle, styles[handler]]}>
+                  <View style={[styles.handler]} />
+                </View>
+              );
+            }}
             heightBound={bounds.height}
             widthBound={bounds.width}
             left={10}
@@ -50,4 +57,30 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   box: { backgroundColor: 'red', width: '100%', height: '100%' },
+  cornerHandle: {
+    position: 'absolute',
+    zIndex: 1,
+  },
+  topLeft: {
+    left: -10,
+    top: -10,
+  },
+  topRight: {
+    right: -10,
+    top: -10,
+  },
+  bottomLeft: {
+    left: -10,
+    bottom: -10,
+  },
+  bottomRight: {
+    right: -10,
+    bottom: -10,
+  },
+  handler: {
+    width: 20,
+    height: 20,
+    backgroundColor: '#000',
+    borderRadius: 20,
+  },
 });

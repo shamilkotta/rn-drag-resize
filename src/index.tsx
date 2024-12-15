@@ -12,12 +12,22 @@ const clamp = (value: number, lowerBound: number, upperBound: number) => {
   return Math.min(Math.max(lowerBound, value), upperBound);
 };
 
+const _renderHandler: Props['renderHandler'] = ({ handler }) => {
+  return (
+    <Animated.View style={[styles.cornerHandle, styles[handler]]}>
+      <View style={[styles.handler]} />
+    </Animated.View>
+  );
+};
+
 type BoxDimension = {
   left: number;
   top: number;
   width: number;
   height: number;
 };
+
+type Handlers = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
 type Props = {
   heightBound: number;
@@ -37,6 +47,8 @@ type Props = {
   onTap?: () => void;
   scale?: number;
   style?: StyleProp<ViewStyle>;
+  resizeHandlers?: Array<Handlers>;
+  renderHandler?: (prop: { handler: Handlers }) => React.ReactNode;
 };
 
 function DragResizable(props: PropsWithChildren<Props>) {
@@ -59,6 +71,8 @@ function DragResizable(props: PropsWithChildren<Props>) {
     onTap,
     children,
     style,
+    resizeHandlers = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'],
+    renderHandler = _renderHandler,
   } = props;
 
   const boxX = useSharedValue(left);
@@ -116,7 +130,7 @@ function DragResizable(props: PropsWithChildren<Props>) {
     });
 
   const createResizeHandler = useCallback(
-    (corner: string) => {
+    (corner: Handlers) => {
       return Gesture.Pan()
         .enabled(isResizable)
         .onStart(() => {
@@ -266,31 +280,16 @@ function DragResizable(props: PropsWithChildren<Props>) {
       >
         {children}
       </GestureDetector>
-      {isResizable ? (
-        <>
-          <GestureDetector gesture={createResizeHandler('topLeft')}>
-            <Animated.View style={[styles.cornerHandle, styles.topLeft]}>
-              <View style={[styles.handler]} />
-            </Animated.View>
-          </GestureDetector>
-          <GestureDetector gesture={createResizeHandler('topRight')}>
-            <Animated.View style={[styles.cornerHandle, styles.topRight]}>
-              <View style={[styles.handler]} />
-            </Animated.View>
-          </GestureDetector>
-
-          <GestureDetector gesture={createResizeHandler('bottomLeft')}>
-            <Animated.View style={[styles.cornerHandle, styles.bottomLeft]}>
-              <View style={[styles.handler]} />
-            </Animated.View>
-          </GestureDetector>
-          <GestureDetector gesture={createResizeHandler('bottomRight')}>
-            <Animated.View style={[styles.cornerHandle, styles.bottomRight]}>
-              <View style={[styles.handler]} />
-            </Animated.View>
-          </GestureDetector>
-        </>
-      ) : null}
+      {isResizable
+        ? resizeHandlers.map((handler) => (
+            <GestureDetector
+              key={handler}
+              gesture={createResizeHandler(handler)}
+            >
+              {renderHandler?.({ handler })}
+            </GestureDetector>
+          ))
+        : null}
     </Animated.View>
   );
 }
