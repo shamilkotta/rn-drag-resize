@@ -12,7 +12,7 @@ This library is a fork of [reanimated-drag-resize](https://github.com/fateh999/r
 Install the library:
 
 ```bash
-pnpm add @shamilkotta/rn-drag-resize
+yarn add @shamilkotta/rn-drag-resize
 ```
 
 ## Required peer dependencies
