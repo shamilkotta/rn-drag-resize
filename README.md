@@ -62,20 +62,22 @@ const [bounds, setBounds] = useState({ width: 0, height: 0 });
 
 #### Options
 
-| name        | type      | description                                 | default |
-| ----------- | --------- | ------------------------------------------- | ------- |
-| isDraggable | boolean   | Can be used to enable or disable the drag   | true    |
-| isResizable | boolean   | Can be used to enable or disable the resize | true    |
-| top         | number    | Top position of the box                     | -       |
-| left        | number    | Left position of the box                    | -       |
-| minWidth    | number    | Minimum width limit for resize              | 50      |
-| minHeight   | number    | Minimum height limit for resize             | 50      |
-| heightBound | number    | Y axis boundary for drag                    | -       |
-| widthBound  | number    | X axis boundary for drag                    | -       |
-| height      | number    | Height of the box                           | 50      |
-| width       | number    | Width of the box                            | 150     |
-| scale       | number    | Resize or drag factor                       | 1       |
-| style       | ViewStyle | Box style                                   | -       |
+| name           | type            | description                                 | default                                                |
+| -------------- | --------------- | ------------------------------------------- | ------------------------------------------------------ |
+| isDraggable    | boolean         | Can be used to enable or disable the drag   | true                                                   |
+| isResizable    | boolean         | Can be used to enable or disable the resize | true                                                   |
+| top            | number          | Top position of the box                     | -                                                      |
+| left           | number          | Left position of the box                    | -                                                      |
+| minWidth       | number          | Minimum width limit for resize              | 50                                                     |
+| minHeight      | number          | Minimum height limit for resize             | 50                                                     |
+| heightBound    | number          | Y axis boundary for drag                    | -                                                      |
+| widthBound     | number          | X axis boundary for drag                    | -                                                      |
+| height         | number          | Height of the box                           | 50                                                     |
+| width          | number          | Width of the box                            | 150                                                    |
+| scale          | number          | Resize or drag factor                       | 1                                                      |
+| resizeHandlers | Array<Handlers> | Visible resize handlers                     | `['bottomLeft', 'bottomRight', 'topLeft', 'topRight']` |
+| renderHandler  | ReactNode       | Handler component                           | -                                                      |
+| style          | ViewStyle       | Box style                                   | -                                                      |
 
 #### Callbacks
 
