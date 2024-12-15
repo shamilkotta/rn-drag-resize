@@ -75,11 +75,13 @@ function DragResizable(props: PropsWithChildren<Props>) {
   const gestureHandler = Gesture.Pan()
     .enabled(isDraggable)
     .onStart(() => {
+      'worklet';
       offsetX.value = boxX.value;
       offsetY.value = boxY.value;
       if (onDragStart) runOnJS(onDragStart)();
     })
     .onUpdate((ev) => {
+      'worklet';
       boxX.value = clamp(
         offsetX.value + ev.translationX / scale,
         0,
@@ -92,6 +94,7 @@ function DragResizable(props: PropsWithChildren<Props>) {
       );
     })
     .onEnd(() => {
+      'worklet';
       if (onDragEnd) {
         runOnJS(onDragEnd)({
           width: boxWidth.value,
@@ -101,15 +104,14 @@ function DragResizable(props: PropsWithChildren<Props>) {
         });
       }
     })
-    .onFinalize(() => {})
     .minDistance(10)
     .minPointers(1)
     .maxPointers(1);
 
   const tapGesture = Gesture.Tap()
     .numberOfTaps(1)
-    .onStart(() => {})
     .onEnd(() => {
+      'worklet';
       if (onTap) runOnJS(onTap)();
     });
 
@@ -118,6 +120,7 @@ function DragResizable(props: PropsWithChildren<Props>) {
       return Gesture.Pan()
         .enabled(isResizable)
         .onStart(() => {
+          'worklet';
           sHeight.value = boxHeight.value;
           sWidth.value = boxWidth.value;
           offsetX.value = boxX.value;
@@ -125,6 +128,7 @@ function DragResizable(props: PropsWithChildren<Props>) {
           if (onResizeStart) runOnJS(onResizeStart)();
         })
         .onUpdate((ev) => {
+          'worklet';
           let updatedWidth = sWidth.value;
           let updatedHeight = sHeight.value;
           let updatedX = offsetX.value;
@@ -215,6 +219,7 @@ function DragResizable(props: PropsWithChildren<Props>) {
           boxY.value = updatedY;
         })
         .onEnd(() => {
+          'worklet';
           if (onResizeEnd) {
             runOnJS(onResizeEnd)({
               width: boxWidth.value,
@@ -224,7 +229,6 @@ function DragResizable(props: PropsWithChildren<Props>) {
             });
           }
         })
-        .onFinalize(() => {})
         .minDistance(0)
         .minPointers(1)
         .maxPointers(1);
