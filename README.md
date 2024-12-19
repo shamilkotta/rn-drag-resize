@@ -7,6 +7,8 @@ This library is a fork of [reanimated-drag-resize](https://github.com/fateh999/r
 - [x] Event start and end callbacks
 - [x] 4 corner resizing
 
+![Drag resize](demo.gif)
+
 ## Getting started
 
 Install the library:
