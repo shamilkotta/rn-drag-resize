@@ -14,7 +14,7 @@ This library is a fork of [reanimated-drag-resize](https://github.com/fateh999/r
 Install the library:
 
 ```bash
-yarn add @shamilkotta/rn-drag-resize
+pnpm add @shamilkotta/rn-drag-resize
 ```
 
 ## Required peer dependencies
@@ -25,6 +25,9 @@ yarn add @shamilkotta/rn-drag-resize
 | react-native-gesture-handler |      \>= \*      |
 
 ## Usage
+
+Example app can be found [here](https://github.com/shamilkotta/rn-drag-resize/tree/main/example)
+
 
 ```javascript
 import DragResizable from '@shamilkotta/rn-drag-resize';
@@ -58,6 +61,17 @@ const [bounds, setBounds] = useState({ width: 0, height: 0 });
     </View>
   </SafeAreaView>
 ...
+
+  const styles = StyleSheet.create({
+    container: {
+      height: "100%",
+    },
+    box: {
+      backgroundColor: "red",
+      width: "100%",
+      height: "100%",
+    },
+  });
 ```
 
 ## Props
